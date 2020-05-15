@@ -1,0 +1,16 @@
+{
+  "name": "arobase",
+  "version": "0.0.0",
+  "description": "Linux desktop app for https://chat.google.com",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/cyosp/arobase",
+  "homepage": "https://github.com/cyosp/arobase",
+  "author": "CYOSP",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "electron": "7.3.0"
+  }
+}
