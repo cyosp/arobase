@@ -7,6 +7,7 @@ function createWindow() {
     });
 
     mainWindow.loadURL("https://chat.google.com");
+    mainWindow.setIcon("icons/app/offline.png");
 }
 
 app.whenReady().then(() => {
