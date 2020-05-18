@@ -1,14 +1,16 @@
 const {app, BrowserWindow} = require("electron");
 const trayIcon = require("./tray-icon");
 
+let browserWindow;
+
 function createWindow() {
-    const mainWindow = new BrowserWindow({
+    browserWindow = new BrowserWindow({
         width: 600,
         height: 800
     });
 
-    mainWindow.loadURL("https://chat.google.com");
-    mainWindow.setIcon("icons/app/offline.png");
+    browserWindow.loadURL("https://chat.google.com");
+    browserWindow.setIcon("icons/app/offline.png");
 }
 
 app.whenReady().then(() => {
