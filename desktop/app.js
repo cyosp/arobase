@@ -1,4 +1,5 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow} = require("electron");
+const trayIcon = require("./tray-icon");
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
@@ -12,6 +13,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
     createWindow();
+    trayIcon.build();
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the
