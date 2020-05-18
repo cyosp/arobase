@@ -3,27 +3,34 @@ const trayIcon = require("./tray-icon");
 
 let browserWindow;
 
-function createWindow() {
-    browserWindow = new BrowserWindow({
-        width: 600,
-        height: 800
-    });
-
-    browserWindow.loadURL("https://chat.google.com");
-    browserWindow.setIcon("icons/app/offline.png");
-}
-
 app.whenReady().then(() => {
-    createWindow();
     trayIcon.build();
+    startGoogleChat();
 
     app.on('activate', function () {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
         if (BrowserWindow.getAllWindows().length === 0)
-            createWindow();
+            startGoogleChat();
     });
 });
+
+function startGoogleChat() {
+    browserWindow = new BrowserWindow({
+        width: 600,
+        height: 800
+    });
+    setOfflineIcon();
+    loadGoogleChat();
+}
+
+function setOfflineIcon() {
+    browserWindow.setIcon("icons/app/offline.png");
+}
+
+function loadGoogleChat() {
+    browserWindow.loadURL("https://chat.google.com");
+}
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
