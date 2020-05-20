@@ -1,8 +1,9 @@
 const {ipcMain} = require("electron");
+const trayIcon = require("./tray-icon");
 
 ipcMain.on("favicon-changed", (ipcMainEvent, href) => {
     let status = computeStatus(href);
-    console.debug("Status: " + status);
+    trayIcon.setImage(status);
 });
 
 function computeStatus(href) {
