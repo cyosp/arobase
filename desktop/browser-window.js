@@ -1,4 +1,4 @@
-const {BrowserWindow} = require("electron");
+const {app, BrowserWindow} = require("electron");
 
 let browserWindow;
 
@@ -16,7 +16,7 @@ function build() {
 }
 
 function imagePath(status) {
-    return "icons/app/" + status + ".png";
+    return app.getAppPath() + "/icons/app/" + status + ".png";
 }
 
 function setOfflineIcon() {

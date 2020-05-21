@@ -1,9 +1,8 @@
-const {Tray} = require("electron");
-
+const {app, Tray} = require("electron");
 let trayIcon;
 
 function imagePath(status) {
-    return "icons/tray/" + status + ".png";
+    return app.getAppPath() + "/icons/tray/" + status + ".png";
 }
 
 module.exports = {

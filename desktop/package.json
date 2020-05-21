@@ -4,13 +4,28 @@
   "description": "Linux desktop app for https://chat.google.com",
   "main": "app.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-builder"
   },
   "repository": "https://github.com/cyosp/arobase",
   "homepage": "https://github.com/cyosp/arobase",
-  "author": "CYOSP",
+  "author": {
+    "name": "CYOSP",
+    "email": "cyosp@cyosp.com"
+  },
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "electron": "7.3.0"
+    "electron": "7.3.0",
+    "electron-builder": "22.6.1"
+  },
+  "build": {
+    "appId": "com.cyosp.arobase",
+    "linux": {
+      "target": "deb",
+      "category": "Network",
+      "desktop": {
+        "Name": "Arobase"
+      }
+    }
   }
 }
