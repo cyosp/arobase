@@ -17,6 +17,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Use tag name as desktop app version
+        uses: jacobtomlinson/gha-find-replace@0.1.1
+        with:
+          include: "desktop/package.json"
+          find: '"0.0.0"'
+          replace: '"${{ steps.tag.outputs.NAME }}"'
+
       - name: Install npm modules
         run: npm install
         working-directory: desktop
