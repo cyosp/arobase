@@ -44,6 +44,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ steps.tag.outputs.NAME }}
+          draft: true
 
       - name: Upload Debian package to release
         uses: actions/upload-release-asset@v1
@@ -64,3 +65,12 @@ jobs:
           asset_path: desktop/dist/arobase-SHA512.txt
           asset_name: arobase-SHA512.txt
           asset_content_type: text/plain
+
+      - name: Publish release with notes
+        uses: cyosp/publish-release-with-notes@1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          id: ${{ steps.release.outputs.id }}
+          version: ${{ steps.tag.outputs.NAME }}
+          notes: ${{ github.workspace }}/RELEASE-NOTES.md
