@@ -7,7 +7,8 @@ function build() {
         width: 600,
         height: 800,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            spellcheck: true
         }
     });
     setOfflineIcon();
