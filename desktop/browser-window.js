@@ -60,5 +60,8 @@ module.exports = {
     build: build,
     setIcon: (status) => {
         browserWindow.setIcon(imagePath(status));
+    },
+    show: () => {
+        browserWindow.show();
     }
 }
