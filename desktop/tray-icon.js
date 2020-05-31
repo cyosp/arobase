@@ -1,7 +1,19 @@
 const {app, Tray, Menu} = require("electron");
 const browserWindow = require("./browser-window");
 
+let translation;
+
 let trayIcon;
+
+function initializeTranslation() {
+    const TRANSLATION_FOLDER = "./i18n/";
+    const JSON_EXTENSION = ".json";
+    try {
+        translation = require(TRANSLATION_FOLDER + app.getLocale() + JSON_EXTENSION);
+    } catch (e) {
+        translation = require(TRANSLATION_FOLDER + "en" + JSON_EXTENSION);
+    }
+}
 
 function imagePath(status) {
     return app.getAppPath() + "/icons/tray/" + status + ".png";
@@ -10,7 +22,7 @@ function imagePath(status) {
 function setContextMenu() {
     const contextMenu = Menu.buildFromTemplate([
         {
-            label: "Display",
+            label: translation.tray.display,
             click: browserWindow.show
         }
     ]);
@@ -19,6 +31,7 @@ function setContextMenu() {
 
 module.exports = {
     build: () => {
+        initializeTranslation();
         trayIcon = new Tray(imagePath("offline"));
         setContextMenu();
     },

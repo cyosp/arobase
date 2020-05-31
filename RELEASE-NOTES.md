@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.1.0 (2020-05-31)
+ * Add translated tray context menu
+
 ##### 2.0.0 (2020-05-28)
  * Electron upgrade from 7.3.0 to 9.0.0
  * Add spell checker
