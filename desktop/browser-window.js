@@ -63,5 +63,8 @@ module.exports = {
     },
     show: () => {
         browserWindow.show();
+    },
+    flashFrame: (flag) => {
+        browserWindow.flashFrame(flag);
     }
 }

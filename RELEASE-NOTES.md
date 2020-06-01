@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.2.0 (2020-06-01)
+ * Desktop app flashes for personal or channel notification
+
 ##### 2.1.0 (2020-05-31)
  * Add translated tray context menu
 
