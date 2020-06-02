@@ -23,3 +23,7 @@ In that case, search in your desktop environment how to add and configure a comp
 For Debian Buster and Xfce it's necessary to:
  * Install: `xfce4-sntray-plugin` package.
  * Configure Xfce dashboard to display: `StatusNotifer plugin`.
+ 
+# Release notes
+
+Release notes can be accessed here: [RELEASE-NOTES.md](RELEASE-NOTES.md)
