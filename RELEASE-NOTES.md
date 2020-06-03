@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.3.0 (2020-06-03)
+ * Open non Google URL into default system app
+
 ##### 2.2.0 (2020-06-01)
  * Desktop app flashes for personal or channel notification
 
