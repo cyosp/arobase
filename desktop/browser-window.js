@@ -76,8 +76,8 @@ module.exports = {
     setIcon: (status) => {
         browserWindow.setIcon(imagePath(status));
     },
-    show: () => {
-        browserWindow.show();
+    toggleShowMinimize: () => {
+        browserWindow.isFocused() ? browserWindow.minimize() : browserWindow.show();
     },
     flashFrame: (flag) => {
         browserWindow.flashFrame(flag);

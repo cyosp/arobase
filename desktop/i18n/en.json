@@ -1,5 +1,7 @@
 {
-  "tray": {
-    "display": "Display"
+  "trayIcon": {
+    "contextMenu": {
+      "showMinimize": "Show / Minimize"
+    }
   }
 }

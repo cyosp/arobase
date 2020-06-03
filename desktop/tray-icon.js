@@ -22,8 +22,8 @@ function imagePath(status) {
 function setContextMenu() {
     const contextMenu = Menu.buildFromTemplate([
         {
-            label: translation.tray.display,
-            click: browserWindow.show
+            label: translation.trayIcon.contextMenu.showMinimize,
+            click: browserWindow.toggleShowMinimize
         }
     ]);
     trayIcon.setContextMenu(contextMenu);

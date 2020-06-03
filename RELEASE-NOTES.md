@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.4.0 (2020-06-04)
+ * Tray icon context menu toggles show/minimize app
+
 ##### 2.3.0 (2020-06-03)
  * Open non Google URL into default system app
 
