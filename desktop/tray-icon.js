@@ -1,5 +1,6 @@
 const {app, Tray, Menu} = require("electron");
 const browserWindow = require("./browser-window");
+const appPackage = require("./package.json");
 
 let translation;
 
@@ -19,6 +20,10 @@ function imagePath(status) {
     return app.getAppPath() + "/icons/tray/" + status + ".png";
 }
 
+function setToolTip() {
+    trayIcon.setToolTip(appPackage.name + " " + appPackage.version);
+}
+
 function setContextMenu() {
     const contextMenu = Menu.buildFromTemplate([
         {
@@ -33,6 +38,7 @@ module.exports = {
     build: () => {
         initializeTranslation();
         trayIcon = new Tray(imagePath("offline"));
+        setToolTip();
         setContextMenu();
     },
     setImage: (status) => {

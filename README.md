@@ -24,6 +24,10 @@ For Debian Buster and Xfce it's necessary to:
  * Install: `xfce4-sntray-plugin` package.
  * Configure Xfce dashboard to display: `StatusNotifer plugin`.
  
+# Development context
+
+Desktop app is developed and tested on Debian Bullseye with Xfce 4.14
+ 
 # Release notes
 
 Release notes can be accessed here: [RELEASE-NOTES.md](RELEASE-NOTES.md)

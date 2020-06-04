@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.5.0 (2020-06-05)
+ * Tray icon tooltip displays app name and version
+
 ##### 2.4.0 (2020-06-04)
  * Tray icon context menu toggles show/minimize app
 
