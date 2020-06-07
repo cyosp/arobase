@@ -9,6 +9,12 @@ npm i
 npm start -- --no-sandbox
 ```
 
+### Options
+
+ * `--debug`
+ 
+    Display debug messages on console
+
 ## System tray info
  
 Starting Electron 8, system tray integration has changed and is based on DBus.
