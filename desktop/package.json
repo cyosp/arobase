@@ -14,6 +14,9 @@
     "email": "cyosp@cyosp.com"
   },
   "license": "BSD-3-Clause",
+  "dependencies": {
+    "electron-settings": "3.2.0"
+  },
   "devDependencies": {
     "electron": "9.0.0",
     "electron-builder": "22.6.1"
