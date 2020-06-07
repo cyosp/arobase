@@ -1,16 +1,23 @@
 const {app, shell, BrowserWindow} = require("electron");
+const windowState = require("./window-state");
 
 let browserWindow;
 
 function build() {
+    windowState.load();
     browserWindow = new BrowserWindow({
-        width: 600,
-        height: 800,
+        x: windowState.x(),
+        y: windowState.y(),
+        width: windowState.width(),
+        height: windowState.height(),
         webPreferences: {
             nodeIntegration: true,
             spellcheck: true
         }
     });
+    windowState.setWindow(browserWindow);
+    windowState.restoreDisplayOnFocus();
+    windowState.saveOnClose();
     setOfflineIcon();
     loadGoogleChat();
     registerFaviconChangedEvent();

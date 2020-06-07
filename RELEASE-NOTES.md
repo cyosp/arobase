@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.6.0 (2020-06-07)
+ * Restore window state on app startup
+
 ##### 2.5.0 (2020-06-05)
  * Tray icon tooltip displays app name and version
 
