@@ -15,7 +15,8 @@
   },
   "license": "BSD-3-Clause",
   "dependencies": {
-    "electron-settings": "3.2.0"
+    "electron-settings": "3.2.0",
+    "lodash": "4.17.15"
   },
   "devDependencies": {
     "electron": "9.0.0",
