@@ -3,5 +3,10 @@
     "contextMenu": {
       "showMinimize": "Show / Minimize"
     }
+  },
+  "browserWindow": {
+    "contextMenu": {
+      "suggestions": "Suggestions"
+    }
   }
 }
