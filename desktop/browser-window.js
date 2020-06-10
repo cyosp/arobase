@@ -1,5 +1,6 @@
 const {app, shell, BrowserWindow} = require("electron");
 const windowState = require("./window-state");
+const suggestion = require("./suggestion");
 
 let browserWindow;
 
@@ -18,10 +19,18 @@ function build() {
     windowState.setWindow(browserWindow);
     windowState.restoreDisplayOnFocus();
     windowState.saveOnClose();
+    exitOnClose();
     setOfflineIcon();
     loadGoogleChat();
+    suggestion.addOnContextMenu(browserWindow);
     registerFaviconChangedEvent();
     registerNewWindowEvent();
+}
+
+function exitOnClose() {
+    browserWindow.on("close", () => {
+        app.exit();
+    });
 }
 
 function registerNewWindowEvent() {

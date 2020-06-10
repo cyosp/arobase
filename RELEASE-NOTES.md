@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 2.7.0 (2020-06-10)
+ * Add context menu with suggestions to correct misspelled words
+
 ##### 2.6.0 (2020-06-07)
  * Restore window state on app startup
 

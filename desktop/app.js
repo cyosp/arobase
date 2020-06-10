@@ -7,7 +7,3 @@ app.whenReady().then(() => {
     trayIcon.build();
     browserWindow.build();
 });
-
-app.on('window-all-closed', function () {
-    app.quit();
-});
