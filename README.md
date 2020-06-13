@@ -1,5 +1,10 @@
-# arobase
+# Arobase
+
 Linux desktop app for https://chat.google.com
+
+## Development context
+
+App is developed and tested on **Debian Bullseye** with **Xfce 4.14**
 
 ## Main features
 
@@ -10,8 +15,12 @@ Linux desktop app for https://chat.google.com
  * Tray icon context menu to show or minimize app
  * Restore window state on app startup
  * Tray icon tooltip displays app version
+ 
+### Release notes
 
-## Run app from Debian
+They can be accessed here: [RELEASE-NOTES.md](RELEASE-NOTES.md)
+
+## Run app on Debian
 
 ```
 cd desktop
@@ -39,11 +48,3 @@ In that case, search in your desktop environment how to add and configure a comp
 For Debian Buster and Xfce it's necessary to:
  * Install: `xfce4-sntray-plugin` package.
  * Configure Xfce dashboard to display: `StatusNotifer plugin`.
- 
-# Development context
-
-Desktop app is developed and tested on Debian Bullseye with Xfce 4.14
- 
-# Release notes
-
-Release notes can be accessed here: [RELEASE-NOTES.md](RELEASE-NOTES.md)
