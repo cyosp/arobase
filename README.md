@@ -48,3 +48,19 @@ In that case, search in your desktop environment how to add and configure a comp
 For Debian Buster and Xfce it's necessary to:
  * Install: `xfce4-sntray-plugin` package.
  * Configure Xfce dashboard to display: `StatusNotifer plugin`.
+
+# Developer
+
+App is based on [Electron](https://github.com/electron/electron).
+
+Here are some quick documentation links and tips:
+ * [Browser window](https://www.electronjs.org/docs/api/browser-window)
+
+ * [Tray icon](https://www.electronjs.org/docs/api/tray)
+ 
+    On Linux, tray icon click is ignored
+
+ * [Menu item](https://www.electronjs.org/docs/api/menu-item)
+ 
+ * [Desktop integration](https://github.com/electron/electron/blob/master/docs/tutorial/desktop-environment-integration.md)
+
