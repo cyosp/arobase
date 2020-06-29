@@ -35,15 +35,11 @@ function exitOnClose() {
 
 function registerNewWindowEvent() {
     browserWindow.webContents.on("new-window", (event, url) => {
-        // Default behavior will be to open URL in a new app window
-        // Google Meet for example: https://meet.google.com
-        if (!url.match(/\.google\.com/)) {
-            // Avoid new app window
-            event.preventDefault();
-            if (url !== "about:blank")
-                shell.openExternal(url)
-                    .then(/*nothing*/);
-        }
+        // Avoid new app window
+        event.preventDefault();
+        if (url !== "about:blank")
+            shell.openExternal(url)
+                .then(/*nothing*/);
     });
 }
 

@@ -11,7 +11,7 @@ App is developed and tested on **Debian Bullseye** with **Xfce 4.14**
  * Tray and app icons change according to notifications
  * App flashes in taskbar for personal or channel notification
  * Spell checker with suggestions
- * Open non Google URL into default system app
+ * Open URLs into default system app
  * Tray icon context menu to show or minimize app
  * Restore window state on app startup
  * Tray icon tooltip displays app version

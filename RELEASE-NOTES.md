@@ -1,5 +1,9 @@
 Release notes
 -------------
+##### 2.7.1 (2020-06-29)
+ * Open all URLs into default system app
+   Electron doesn't manage all Google features like: Meet screen sharing
+
 ##### 2.7.0 (2020-06-10)
  * Add context menu with suggestions to correct misspelled words
 
