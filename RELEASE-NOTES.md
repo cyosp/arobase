@@ -1,5 +1,9 @@
 Release notes
 -------------
+##### 3.0.0 (2020-09-19)
+ * Electron upgrade from 9.0.0 to 10.1.2
+ * Move app version from tray icon tooltip to tray icon 'About' context menu
+
 ##### 2.7.1 (2020-06-29)
  * Open all URLs into default system app
    Electron doesn't manage all Google features like: Meet screen sharing

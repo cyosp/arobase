@@ -1,4 +1,4 @@
-const {app, Tray, Menu} = require("electron");
+const {app, dialog, Menu, Tray} = require("electron");
 const browserWindow = require("./browser-window");
 const appPackage = require("./package.json");
 const i18n = require("./i18n");
@@ -9,8 +9,16 @@ function imagePath(status) {
     return app.getAppPath() + "/icons/tray/" + status + ".png";
 }
 
-function setToolTip() {
-    trayIcon.setToolTip(appPackage.name + " " + appPackage.version);
+function about() {
+    let promise = dialog.showMessageBox(
+        {
+            title: i18n.translate("trayIcon.contextMenu.about"),
+            icon: app.getAppPath() + "/icons/about.png",
+            message: appPackage.name.charAt(0).toUpperCase() + appPackage.name.slice(1),
+            detail: appPackage.version,
+            buttons: ["ok"]
+        }
+    )
 }
 
 function setContextMenu() {
@@ -18,6 +26,10 @@ function setContextMenu() {
         {
             label: i18n.translate("trayIcon.contextMenu.showMinimize"),
             click: browserWindow.toggleShowMinimize
+        },
+        {
+            label: i18n.translate("trayIcon.contextMenu.about"),
+            click: about
         }
     ]);
     trayIcon.setContextMenu(contextMenu);
@@ -27,7 +39,6 @@ module.exports = {
     build: () => {
         i18n.setup();
         trayIcon = new Tray(imagePath("offline"));
-        setToolTip();
         setContextMenu();
     },
     setImage: (status) => {

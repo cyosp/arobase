@@ -1,7 +1,8 @@
 {
   "trayIcon": {
     "contextMenu": {
-      "showMinimize": "Show / Minimize"
+      "showMinimize": "Show / Minimize",
+      "about": "About"
     }
   },
   "browserWindow": {
