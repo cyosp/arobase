@@ -2,6 +2,7 @@
   "trayIcon": {
     "contextMenu": {
       "showMinimize": "Show / Minimize",
+      "correction": "Correction",
       "about": "About"
     }
   },

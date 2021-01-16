@@ -21,11 +21,26 @@ function about() {
     )
 }
 
+function buildCorrectionMenu() {
+    let menu = [];
+    i18n.getConfiguration().forEach((value, key) => {
+        menu.push({
+            label: (key === app.getLocale() ? "✓" : "  ") + " " + key,
+            enabled: false
+        })
+    })
+    return menu;
+}
+
 function setContextMenu() {
     const contextMenu = Menu.buildFromTemplate([
         {
             label: i18n.translate("trayIcon.contextMenu.showMinimize"),
             click: browserWindow.toggleShowMinimize
+        },
+        {
+            label: i18n.translate("trayIcon.contextMenu.correction"),
+            submenu: buildCorrectionMenu()
         },
         {
             label: i18n.translate("trayIcon.contextMenu.about"),
