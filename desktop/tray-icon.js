@@ -21,15 +21,15 @@ function about() {
     )
 }
 
-function buildCorrectionMenu() {
-    let menu = [];
+function buildTranslationSubmenu() {
+    let submenu = [];
     i18n.getConfiguration().forEach((value, key) => {
-        menu.push({
+        submenu.push({
             label: (key === app.getLocale() ? "✓" : "  ") + " " + key,
             enabled: false
         })
     })
-    return menu;
+    return submenu;
 }
 
 function setContextMenu() {
@@ -39,8 +39,8 @@ function setContextMenu() {
             click: browserWindow.toggleShowMinimize
         },
         {
-            label: i18n.translate("trayIcon.contextMenu.correction"),
-            submenu: buildCorrectionMenu()
+            label: i18n.translate("trayIcon.contextMenu.translation"),
+            submenu: buildTranslationSubmenu()
         },
         {
             label: i18n.translate("trayIcon.contextMenu.about"),
