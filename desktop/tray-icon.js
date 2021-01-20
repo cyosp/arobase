@@ -2,6 +2,7 @@ const {app, dialog, Menu, Tray} = require("electron");
 const browserWindow = require("./browser-window");
 const appPackage = require("./package.json");
 const i18n = require("./i18n");
+const langmap = require("langmap");
 
 let trayIcon;
 
@@ -25,7 +26,7 @@ function buildTranslationSubmenu() {
     let submenu = [];
     i18n.getConfiguration().forEach((value, key) => {
         submenu.push({
-            label: (key === app.getLocale() ? "✓" : "  ") + " " + key,
+            label: (key === app.getLocale() ? "✓" : "  ") + " " + langmap[key]["nativeName"],
             enabled: false
         })
     })
