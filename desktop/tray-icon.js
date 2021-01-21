@@ -24,10 +24,15 @@ function about() {
 
 function buildTranslationSubmenu() {
     let submenu = [];
-    i18n.getConfiguration().forEach((value, key) => {
+    i18n.getLanguages().forEach(language => {
         submenu.push({
-            label: (key === app.getLocale() ? "✓" : "  ") + " " + langmap[key]["nativeName"],
-            enabled: false
+            label: langmap[language]["nativeName"],
+            type: "radio",
+            checked: language === i18n.getLanguage(),
+            click: function () {
+                i18n.setLanguage(language)
+                setContextMenu();
+            }
         })
     })
     return submenu;
