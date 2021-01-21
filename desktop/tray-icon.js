@@ -23,10 +23,20 @@ function about() {
 }
 
 function buildTranslationSubmenu() {
-    let submenu = [];
+    let languageLabelMap = new Map();
     i18n.getLanguages().forEach(language => {
+        languageLabelMap.set(language, langmap[language]["nativeName"])
+    });
+
+    // Allow to iterate map by sorted values
+    languageLabelMap[Symbol.iterator] = function* () {
+        yield* [...this.entries()].sort();
+    }
+
+    let submenu = [];
+    for (let [language, label] of languageLabelMap) {
         submenu.push({
-            label: langmap[language]["nativeName"],
+            label: label,
             type: "radio",
             checked: language === i18n.getLanguage(),
             click: function () {
@@ -34,7 +44,7 @@ function buildTranslationSubmenu() {
                 setContextMenu();
             }
         })
-    })
+    }
     return submenu;
 }
 
