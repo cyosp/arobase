@@ -4,7 +4,7 @@ Linux desktop app for https://chat.google.com
 
 ## Development context
 
-App is developed and tested on **Debian Bullseye** with **Xfce 4.14**
+App is developed and tested on **Debian Bullseye** with **Xfce 4.16**
 
 ## Main features
 
@@ -12,9 +12,11 @@ App is developed and tested on **Debian Bullseye** with **Xfce 4.14**
  * App flashes in taskbar for personal or channel notification
  * Spell checker with suggestions
  * Open URLs into default system app
- * Tray icon context menu to show or minimize app
+ * Tray icon context menu to:
+   * Show or minimize app
+   * Select app translation
+   * Display app version
  * Restore window state on app startup
- * Tray icon tooltip displays app version
  
 ### Release notes
 

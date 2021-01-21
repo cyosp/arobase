@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 3.1.0 (2021-01-21)
+ * Add tray icon translation context menu to select app translation
+
 ##### 3.0.0 (2020-09-19)
  * Electron upgrade from 9.0.0 to 10.1.2
  * Move app version from tray icon tooltip to tray icon 'About' context menu
