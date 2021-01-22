@@ -14,7 +14,7 @@ let configuration;
 
 function loadConfiguration() {
     configuration = new Map();
-    fs.readdirSync(I18N_FOLDER).forEach(fileName => {
+    fs.readdirSync(app.getAppPath() + "/" + I18N_FOLDER).forEach(fileName => {
         let languageFromFileName = fileName.replace(".json", '');
         configuration.set(languageFromFileName, I18N_FOLDER + fileName);
     });

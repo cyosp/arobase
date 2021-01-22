@@ -1,5 +1,8 @@
 Release notes
 -------------
+##### 3.1.1 (2021-01-22)
+ * Fix: App from Debian package fail to start
+
 ##### 3.1.0 (2021-01-21)
  * Add tray icon translation context menu to select app translation
 
