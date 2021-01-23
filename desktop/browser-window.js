@@ -12,6 +12,7 @@ function build() {
         width: windowState.width(),
         height: windowState.height(),
         webPreferences: {
+            contextIsolation: false,
             nodeIntegration: true,
             spellcheck: true
         }

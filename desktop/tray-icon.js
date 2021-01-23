@@ -58,6 +58,9 @@ function buildSpellCheckerLanguagesSubmenu() {
             // http://www.lingoes.net/en/translator/langcode.htm
             let label;
             switch (language) {
+                case "en-GB-oxendict":
+                    label = "English (Oxford)";
+                    break;
                 case "fo":
                     label = "Faroese";
                     break;
