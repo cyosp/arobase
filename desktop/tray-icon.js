@@ -31,7 +31,7 @@ function buildTranslationSubmenu() {
 
     // Allow to iterate map by sorted values
     languageLabelMap[Symbol.iterator] = function* () {
-        yield* [...this.entries()].sort();
+        yield* [...this.entries()].sort((a, b) => a[1].localeCompare(b[1]));
     }
 
     let submenu = [];
