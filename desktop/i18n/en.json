@@ -3,6 +3,7 @@
     "contextMenu": {
       "showMinimize": "Show / Minimize",
       "translation": "Translation",
+      "spellChecker": "Spell checker",
       "about": "About"
     }
   },

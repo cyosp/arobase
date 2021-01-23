@@ -1,6 +1,6 @@
 const {app, shell, BrowserWindow} = require("electron");
 const windowState = require("./window-state");
-const suggestion = require("./suggestion");
+const spellChecker = require("./spell-checker");
 
 let browserWindow;
 
@@ -22,7 +22,7 @@ function build() {
     exitOnClose();
     setOfflineIcon();
     loadGoogleChat();
-    suggestion.addOnContextMenu(browserWindow);
+    spellChecker.setup(browserWindow);
     registerFaviconChangedEvent();
     registerNewWindowEvent();
 }
@@ -93,5 +93,8 @@ module.exports = {
     },
     flashFrame: (flag) => {
         browserWindow.flashFrame(flag);
+    },
+    getSpellCheckerLanguages: () => {
+        return browserWindow.webContents.session.availableSpellCheckerLanguages;
     }
 }

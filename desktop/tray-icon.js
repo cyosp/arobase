@@ -3,6 +3,7 @@ const browserWindow = require("./browser-window");
 const appPackage = require("./package.json");
 const i18n = require("./i18n");
 const langmap = require("langmap");
+const spellChecker = require("./spell-checker");
 
 let trayIcon;
 
@@ -48,6 +49,52 @@ function buildTranslationSubmenu() {
     return submenu;
 }
 
+function buildSpellCheckerLanguagesSubmenu() {
+    let languageLabelMap = new Map();
+    browserWindow.getSpellCheckerLanguages().forEach(language => {
+        try {
+            languageLabelMap.set(language, langmap[language]["nativeName"])
+        } catch (e) {
+            // http://www.lingoes.net/en/translator/langcode.htm
+            let label;
+            switch (language) {
+                case "fo":
+                    label = "Faroese";
+                    break;
+                case "hy":
+                    label = "Armenian";
+                    break;
+                case "sh":
+                    label = "српскохрватски";
+                    break;
+                default:
+                    console.warn("Unknown language: " + language);
+            }
+            if (label) {
+                languageLabelMap.set(language, label);
+            }
+        }
+    });
+
+    // Allow to iterate map by sorted values
+    languageLabelMap[Symbol.iterator] = function* () {
+        yield* [...this.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+    }
+
+    let submenu = [];
+    for (let [language, label] of languageLabelMap) {
+        submenu.push({
+            label: label,
+            type: "radio",
+            checked: language === spellChecker.getLanguage(),
+            click: function () {
+                spellChecker.setSpellCheckerLanguage(language);
+            }
+        })
+    }
+    return submenu;
+}
+
 function setContextMenu() {
     const contextMenu = Menu.buildFromTemplate([
         {
@@ -59,6 +106,10 @@ function setContextMenu() {
             submenu: buildTranslationSubmenu()
         },
         {
+            label: i18n.translate("trayIcon.contextMenu.spellChecker"),
+            submenu: buildSpellCheckerLanguagesSubmenu()
+        },
+        {
             label: i18n.translate("trayIcon.contextMenu.about"),
             click: about
         }
@@ -68,8 +119,8 @@ function setContextMenu() {
 
 module.exports = {
     build: () => {
-        i18n.setup();
         trayIcon = new Tray(imagePath("offline"));
+        i18n.setup();
         setContextMenu();
     },
     setImage: (status) => {

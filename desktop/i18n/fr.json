@@ -3,6 +3,7 @@
     "contextMenu": {
       "showMinimize": "Afficher / Réduire",
       "translation": "Traduction",
+      "spellChecker": "Correcteur orthographique",
       "about": "À propos"
     }
   },
