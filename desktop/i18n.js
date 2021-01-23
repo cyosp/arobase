@@ -4,7 +4,8 @@ const logger = require("./logger");
 const _ = require("lodash");
 const fs = require("fs");
 
-const TRANSLATION_LANGUAGE_PATH = "translation.language";
+const LEGACY_TRANSLATION_LANGUAGE_PATH = "translation.language";
+const APP_TRANSLATION_LANGUAGE_PATH = "appTranslation.language";
 const I18N_FOLDER = "./i18n/";
 const DEFAULT_LANGUAGE = "en";
 
@@ -22,9 +23,12 @@ function loadConfiguration() {
 
 function loadLanguage() {
     let lang;
-    if (appSettings.has(`${TRANSLATION_LANGUAGE_PATH}`)) {
-        lang = appSettings.get(`${TRANSLATION_LANGUAGE_PATH}`);
-        logger.debug("Language loaded: " + lang);
+    if (appSettings.has(`${APP_TRANSLATION_LANGUAGE_PATH}`)) {
+        lang = appSettings.get(`${APP_TRANSLATION_LANGUAGE_PATH}`);
+        logger.debug("Translation language loaded: " + lang);
+    } else if (appSettings.has(`${LEGACY_TRANSLATION_LANGUAGE_PATH}`)) {
+        lang = appSettings.get(`${LEGACY_TRANSLATION_LANGUAGE_PATH}`);
+        logger.debug("Legacy translation language loaded: " + lang);
     } else {
         lang = app.getLocale();
     }
@@ -39,7 +43,7 @@ function setLanguage(value) {
         language = DEFAULT_LANGUAGE;
         i18n = require(configuration.get(language));
     }
-    appSettings.set(`${TRANSLATION_LANGUAGE_PATH}`, language);
+    appSettings.set(`${APP_TRANSLATION_LANGUAGE_PATH}`, language);
 }
 
 module.exports = {
