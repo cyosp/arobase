@@ -2,7 +2,7 @@
   "trayIcon": {
     "contextMenu": {
       "showMinimize": "Show / Minimize",
-      "translation": "Translation",
+      "appTranslation": "App translation",
       "spellChecker": "Spell checker",
       "about": "About"
     }

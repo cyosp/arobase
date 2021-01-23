@@ -105,7 +105,7 @@ function setContextMenu() {
             click: browserWindow.toggleShowMinimize
         },
         {
-            label: i18n.translate("trayIcon.contextMenu.translation"),
+            label: i18n.translate("trayIcon.contextMenu.appTranslation"),
             submenu: buildTranslationSubmenu()
         },
         {
