@@ -26,7 +26,7 @@ function about() {
 function buildTranslationSubmenu() {
     let languageLabelMap = new Map();
     i18n.getLanguages().forEach(language => {
-        languageLabelMap.set(language, langmap[language]["nativeName"])
+        languageLabelMap.set(language, langmap[language]["nativeName"]);
     });
 
     // Allow to iterate map by sorted values
@@ -41,7 +41,7 @@ function buildTranslationSubmenu() {
             type: "radio",
             checked: language === i18n.getLanguage(),
             click: function () {
-                i18n.setLanguage(language)
+                i18n.setLanguage(language);
                 setContextMenu();
             }
         })
@@ -53,7 +53,7 @@ function buildSpellCheckerLanguagesSubmenu() {
     let languageLabelMap = new Map();
     browserWindow.getSpellCheckerLanguages().forEach(language => {
         try {
-            languageLabelMap.set(language, langmap[language]["nativeName"])
+            languageLabelMap.set(language, langmap[language]["nativeName"]);
         } catch (e) {
             // http://www.lingoes.net/en/translator/langcode.htm
             let label;
