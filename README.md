@@ -14,9 +14,39 @@ App is developed and tested on **Debian Bullseye** with **Xfce 4.16**
  * Open URLs into default system app
  * Tray icon context menu to:
    * Show or minimize app
-   * Select app translation
+   * Select app translation language
+   * Select spell checker language
    * Display app version
  * Restore window state on app startup
+
+## App settings
+
+App settings are stored in file: `~/.config/arobase/Settings`.
+
+Example:
+```json
+{
+   "spellChecker": {
+      "language": "fr"
+   },
+   "appTranslation": {
+      "language": "fr"
+   },
+   "window": {
+      "state": {
+         "bounds": {
+            "x": 665,
+            "y": 170,
+            "width": 600,
+            "height": 800
+         },
+         "maximized": false,
+         "minimized": false,
+         "focused": true
+      }
+   }
+}
+```
  
 ### Release notes
 

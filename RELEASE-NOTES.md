@@ -1,5 +1,9 @@
 Release notes
 -------------
+##### 4.0.0 (2021-01-23)
+ * Electron upgrade from 10.1.2 to 11.2.1
+ * Add tray icon spell checker context menu to select spell checker language
+
 ##### 3.1.1 (2021-01-22)
  * Fix: App from Debian package fail to start
 
