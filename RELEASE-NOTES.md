@@ -5,7 +5,7 @@ Release notes
  * Add tray icon spell checker context menu to select spell checker language
 
 ##### 3.1.1 (2021-01-22)
- * Fix: App from Debian package fail to start
+ * Fix: App from Debian package fails to start
 
 ##### 3.1.0 (2021-01-21)
  * Add tray icon translation context menu to select app translation
