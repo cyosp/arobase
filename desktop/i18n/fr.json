@@ -9,7 +9,16 @@
   },
   "browserWindow": {
     "contextMenu": {
-      "suggestions": "Propositions"
+      "copy": "Copier",
+      "copyImage": "Copier l'image",
+      "copyLink": "Copier le lien",
+      "cut": "Couper",
+      "learnSpelling": "Ajouter au dictionnaire",
+      "paste": "Coller",
+      "saveImage": "Enregistrer l'image",
+      "saveImageAs": "Enregistrer l'image sous…",
+      "saveLinkAs": "Enregistrer le lien sous…",
+      "searchWithGoogle": "Rechercher avec Google"
     }
   }
 }

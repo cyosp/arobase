@@ -9,7 +9,16 @@
   },
   "browserWindow": {
     "contextMenu": {
-      "suggestions": "Suggestions"
+      "copy": "Copy",
+      "copyImage": "Copy image",
+      "copyLink": "Copy link",
+      "cut": "Cut",
+      "learnSpelling": "Learn spelling",
+      "paste": "Paste",
+      "saveImage": "Save Image",
+      "saveImageAs": "Save image as…",
+      "saveLinkAs": "Save link as…",
+      "searchWithGoogle": "Search with Google"
     }
   }
 }

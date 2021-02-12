@@ -10,7 +10,18 @@ App is developed and tested on **Debian Bullseye** with **Xfce 4.16**
 
  * Tray and app icons change according to notifications
  * App flashes in taskbar for personal or channel notification
- * Spell checker with suggestions
+ * Context menu actions:
+   * Display spell checker suggestions
+   * Learn spelling
+   * Search with Google
+   * Copy
+   * Cut
+   * Paste
+   * Save Image
+   * Save image as…
+   * Copy image
+   * Copy link
+   * Save link as…
  * Open URLs into default system app
  * Tray icon context menu to:
    * Show or minimize app

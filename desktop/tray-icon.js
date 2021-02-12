@@ -4,6 +4,7 @@ const appPackage = require("./package.json");
 const i18n = require("./i18n");
 const langmap = require("langmap");
 const spellChecker = require("./spell-checker");
+const contextMenu = require("./context-menu")
 
 let trayIcon;
 
@@ -42,7 +43,7 @@ function buildTranslationSubmenu() {
             checked: language === i18n.getLanguage(),
             click: function () {
                 i18n.setLanguage(language);
-                setContextMenu();
+                setAllContextMenus();
             }
         })
     }
@@ -120,11 +121,16 @@ function setContextMenu() {
     trayIcon.setContextMenu(contextMenu);
 }
 
+function setAllContextMenus() {
+    setContextMenu();
+    contextMenu.build();
+}
+
 module.exports = {
     build: () => {
         trayIcon = new Tray(imagePath("offline"));
         i18n.setup();
-        setContextMenu();
+        setAllContextMenus();
     },
     setImage: (status) => {
         trayIcon.setImage(imagePath(status));

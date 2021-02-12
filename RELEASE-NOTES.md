@@ -1,5 +1,18 @@
 Release notes
 -------------
+##### 4.1.0 (2021-02-12)
+* Add context menu actions:
+  * Learn spelling
+  * Search with Google
+  * Copy
+  * Cut
+  * Paste
+  * Save Image
+  * Save image as…
+  * Copy image
+  * Copy link
+  * Save link as…
+
 ##### 4.0.0 (2021-01-23)
  * Electron upgrade from 10.1.2 to 11.2.1
  * Add tray icon spell checker context menu to select spell checker language
