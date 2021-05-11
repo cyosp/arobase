@@ -1,24 +1,28 @@
 const {ipcMain} = require("electron");
 const trayIcon = require("./tray-icon");
 const browserWindow = require("./browser-window");
+const logger = require("./logger");
 
 const PERSONAL_NOTIFICATION = "personal-notification";
 const CHANNEL_NOTIFICATION = "channel-notification";
 
-ipcMain.on("favicon-changed", (ipcMainEvent, href) => {
-    let status = computeStatus(href);
+ipcMain.on("notification-status-change", (ipcMainEvent, value) => {
+    let notificationDate = new Date();
+    logger.debug(notificationDate.toLocaleDateString('fr-FR') + " " + notificationDate.toLocaleTimeString('fr-FR') + ": Notification status change: " + value);
+
+    let status = computeStatus(value);
     trayIcon.setImage(status);
     browserWindow.setIcon(status);
     flashBrowserWindow(status);
 });
 
-function computeStatus(href) {
+function computeStatus(value) {
     let status = "offline";
-    if (href.match(/new-notif/))
+    if (value.match(/P/))
         status = PERSONAL_NOTIFICATION;
-    else if (href.match(/new-non-notif/))
+    else if (value.match(/C/))
         status = CHANNEL_NOTIFICATION;
-    else if (href.match(/no-new/))
+    else if (value.match(/O/))
         status = "online";
     return status;
 }

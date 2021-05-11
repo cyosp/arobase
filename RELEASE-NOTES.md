@@ -1,5 +1,9 @@
 Release notes
 -------------
+##### 5.0.0 (2021-05-11)
+ * Electron upgrade from 11.2.3 to 12.0.7
+ * Keep notification working after Google Chat upgrade at the beginning of May
+
 ##### 4.1.0 (2021-02-12)
 * Add context menu actions:
   * Learn spelling

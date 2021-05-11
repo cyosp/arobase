@@ -14,7 +14,8 @@ function build() {
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true,
-            spellcheck: true
+            spellcheck: true,
+            webSecurity: false
         }
     });
     windowState.setWindow(browserWindow);
@@ -53,30 +54,73 @@ function setOfflineIcon() {
 }
 
 function loadGoogleChat() {
-    browserWindow.loadURL("https://chat.google.com");
+    browserWindow.loadURL("https://mail.google.com/chat/u/0/");
 }
 
 function registerFaviconChangedEvent() {
     browserWindow.webContents.on("dom-ready", () => {
         browserWindow.webContents.executeJavaScript(
             "try {" +
-            "   let favicon = document.querySelector('link#favicon16');" +
-            "   if(favicon) {" +
-            "      const ipcRender = require('electron').ipcRenderer;" +
-            "      let notifyFaviconChanged = function() {" +
-            "         if(favicon.href)" +
-            "            ipcRender.send('favicon-changed', favicon.href);" +
-            "         else" +
-            "            console.error('Missing favicon href attribute');" +
-            "      };" +
-            "      notifyFaviconChanged();" +
-            "      let mutationObserver = new MutationObserver(notifyFaviconChanged);" +
-            "      mutationObserver.observe(favicon, {" +
+
+            "   let previousNotificationType = '';" +
+            "   let conversationsDiv = document.querySelector('div.V6.CL.V2.X9.Y2');" +
+            "   let roomsDiv = document.querySelector('div.V6.CL.su.ahD.X9.Y2');" +
+            "   let roomsDocument = document.body.querySelector(\"iframe.Xu\").contentWindow.document;" +
+
+            "   if(conversationsDiv && roomsDiv && roomsDocument) {" +
+            "      let notificationChanged = function() {" +
+            "         const ipcRender = require('electron').ipcRenderer;" +
+
+            "         const conversationsSpan = conversationsDiv.querySelector('span > span.akt > span');" +
+            "         const roomsSpan = roomsDiv.querySelector('span > span.akt > span');" +
+
+            "         let personalNotificationNumber = 0;" +
+
+            "         if(conversationsSpan && conversationsSpan.textContent) personalNotificationNumber += parseInt(conversationsSpan.textContent);" +
+            "         if(roomsSpan && roomsSpan.textContent) personalNotificationNumber += parseInt(roomsSpan.textContent);" +
+
+            "         let notificationType = 'O';" +
+            "         if(personalNotificationNumber > 0) notificationType = 'P';" +
+            "         else {" +
+            "            let hasNotification = false;" +
+            "            var allRoomsSpan = roomsDocument.getElementsByTagName(\"span\");" +
+            "            for (var i=0; i < allRoomsSpan.length && !hasNotification; i++) {" +
+            "               let clazz = allRoomsSpan[i].getAttribute('class');" +
+            "               if(clazz && clazz.includes('H7du2')) {" +
+            "                  hasNotification = true;" +
+            "                  notificationType = 'C';" +
+            "               };" +
+            "            };" +
+            "         };" +
+
+            "          if(previousNotificationType !== notificationType) {" +
+            "             previousNotificationType = notificationType;" +
+            "             ipcRender.send('notification-status-change', notificationType);" +
+            "          };" +
+            "       };" +
+
+            "      notificationChanged();" +
+
+            "      let mutationObserver = new MutationObserver(notificationChanged);" +
+            "      mutationObserver.observe(conversationsDiv, {" +
+            "         characterData: true," +
+            "         subtree: true," +
+            "         childList: true," +
             "         attributes: true" +
             "      });" +
+
+            "      let mutationObserverS = new MutationObserver(notificationChanged);" +
+            "      mutationObserverS.observe(roomsDocument.body, {" +
+            "         characterData: true," +
+            "         subtree: true," +
+            "         childList: true," +
+            "         attributes: true" +
+            "      });" +
+
             "   } else {" +
-            "      console.error( 'Missing favicon element');" +
+            "      console.error( 'Missing root element(s)');" +
             "   }" +
+
             "} catch (e) {" +
             "  console.error(e);" +
             "}"
