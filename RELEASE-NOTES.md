@@ -2,6 +2,7 @@ Release notes
 -------------
 ##### 5.0.1 (2021-05-12)
  * Fix: A dialog box which opens when a hyperlink is clicked
+ * Upgrade dependencies according to minor versions
 
 ##### 5.0.0 (2021-05-11)
  * Electron upgrade from 11.2.3 to 12.0.7
