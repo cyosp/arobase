@@ -36,9 +36,8 @@ function exitOnClose() {
 }
 
 function registerNewWindowEvent() {
-    browserWindow.webContents.on("new-window", (event, url) => {
+    browserWindow.webContents.setWindowOpenHandler(({url}) => {
         // Avoid new app window
-        event.preventDefault();
         if (url !== "about:blank#blocked")
             shell.openExternal(url)
                 .then(/*nothing*/);
